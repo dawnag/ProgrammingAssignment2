@@ -77,7 +77,8 @@ cacheSolve <- function(x) {
                 ## and must be calculated
                 message("Calculating matrix inverse...")
                 data <- x$get()
-                ## Compute the inverse of the matrix. 
+                ## Compute the inverse of the matrix using the 
+		## solve function
                 m <- solve(data)
                 ## Set the value of the inverse in the cache using
                 ## the setInvertMat function.
