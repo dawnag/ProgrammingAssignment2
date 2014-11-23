@@ -1,6 +1,7 @@
 ####################################################################
 ##
-##  Programming Assignment #2: Caching the Inverse of a Matrix
+##  Programming Assignment #2: Lexical Scoping: 
+##                             Caching the Inverse of a Matrix
 ##------------------------------------------------------------------
 ##  Matrix inversion can be a time-consuming computation and
 ##  caching results may offer some time-saving benefits. These
