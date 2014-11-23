@@ -25,6 +25,7 @@
 ##  retrieve the inverse from the cache.
 ##
 ####################################################################
+##
 makeCacheMatrix <- function(x = matrix()) {
         ## Initialize m
         m <- NULL    
@@ -35,12 +36,11 @@ makeCacheMatrix <- function(x = matrix()) {
         }
         ## Get the value of the matrix
         get <- function() x
-        ## Set the value of the inverse
-        ## Cache the value of the inverse so that it can be looked
-        ## up in the cache rather than be recomputed.
+        ## Set the value of the inverse, and cache it so that
+	## it can be looked up rather than be recomputed.
         setInvertMat <- function(InvertMat) m <<- InvertMat
         ## Get the Value of the inverse
-        getInvertMat<- function() m
+        getInvertMat <- function() m
         list(set = set, get = get, 
              setInvertMat = setInvertMat,
              getInvertMat = getInvertMat)
@@ -61,10 +61,11 @@ makeCacheMatrix <- function(x = matrix()) {
 ##        the supplied matrix is always invertible.
 ##
 ####################################################################
-cacheSolve <- function(x, ...) {
+##
+cacheSolve <- function(x) {
         
         ## See what's in the cache.
-        m <- x$getInvertMat())
+        m <- x$getInvertMat()
         
         ## If not null, then the inverse has already been calculated.
         ## Retrieve the cached data.
@@ -77,7 +78,7 @@ cacheSolve <- function(x, ...) {
                 message("Calculating matrix inverse...")
                 data <- x$get()
                 ## Compute the inverse of the matrix. 
-                m <- solve(data, ...)
+                m <- solve(data)
                 ## Set the value of the inverse in the cache using
                 ## the setInvertMat function.
                 x$setInvertMat(m)
